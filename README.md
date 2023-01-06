@@ -1,5 +1,5 @@
 # fontslist [![npm](https://img.shields.io/npm/v/fontslist)](https://www.npmjs.com/package/fontslist) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/coremyslo/fontslist/blob/master/LICENSE)
-___
+
 This module returns a list or map of font formats that are supported based on the data provided by the `browserslist()` function from the [browserslist](https://github.com/browserslist/browserslist) package.
 
 ## Installation
