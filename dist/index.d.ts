@@ -1,3 +1,3 @@
-import { FontFormat } from "./types";
-export declare const getFontsSupport: (browsersList: string[], minimize?: boolean) => Record<FontFormat, string[]>;
-export declare const getFontsSupportList: (browsersList: string[], minimize?: boolean) => Array<FontFormat>;
+import type { FontFormat } from "./types";
+export declare const getFontFormatsMap: (browsersList: string[], minimize?: boolean) => Map<FontFormat, Set<string>>;
+export declare const getFontFormatsList: (browsersList: string[], minimize?: boolean) => FontFormat[];

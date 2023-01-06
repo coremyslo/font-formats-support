@@ -115,7 +115,7 @@ const data = {
         "android 4": true,
         "android 4.1": true,
         "android 4.2-4.3": true,
-        "android 4.4.3-4.4.4": true
+        "android 4.4.3-4.4.4": true,
     },
     "ttf": {
         "samsung 4": true,
@@ -529,7 +529,7 @@ const data = {
         "and_uc 13.4": true,
         "and_qq 13.1": true,
         "and_ff 107": true,
-        "and_chr 108": true
+        "and_chr 108": true,
     },
     "eot": {
         "ie 6": true,
@@ -537,7 +537,7 @@ const data = {
         "ie 8": true,
         "ie 9": true,
         "ie 10": true,
-        "ie 11": true
+        "ie 11": true,
     },
     "woff": {
         "samsung 4": true,
@@ -945,7 +945,7 @@ const data = {
         "and_uc 13.4": true,
         "and_qq 13.1": true,
         "and_ff 107": true,
-        "and_chr 108": true
+        "and_chr 108": true,
     },
     "woff2": {
         "samsung 4": true,
@@ -1247,7 +1247,7 @@ const data = {
         "and_uc 13.4": true,
         "and_qq 13.1": true,
         "and_ff 107": true,
-        "and_chr 108": true
-    }
+        "and_chr 108": true,
+    },
 };
 exports.default = data;

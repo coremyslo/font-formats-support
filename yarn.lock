@@ -57,6 +57,11 @@
     "@nodelib/fs.scandir" "2.1.5"
     fastq "^1.6.0"
 
+"@types/caniuse-api@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@types/caniuse-api/-/caniuse-api-3.0.2.tgz#684ba0c284b2a58346abf0000bd0a735ad072d75"
+  integrity sha512-YfCDMn7R59n7GFFfwjPAM0zLJQy4UvveC32rOJBmTqJJY8uSRqM4Dc7IJj8V9unA48Qy4nj5Bj3jD6Q8VZ1Seg==
+
 "@types/json-schema@^7.0.9":
   version "7.0.11"
   resolved "https://registry.yarnpkg.com/@types/json-schema/-/json-schema-7.0.11.tgz#d421b6c527a3037f7c84433fd2c4229e016863d3"

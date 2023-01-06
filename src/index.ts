@@ -1,43 +1,35 @@
-import { FontFormat } from "./types";
+import type { FontFormat } from "./types";
 import data from "./data";
 
-export const getFontsSupport = (browsersList: string[], minimize: boolean = true): Record<FontFormat, string[]> => {
-    const maxSupport = browsersList.reduce((acc:Record<FontFormat, string[]>, val) => {
-        if (data.svg[val]) {
-            acc.svg.push(val);
-        }
-        if (data.ttf[val]) {
-            acc.ttf.push(val);
-        }
-        if (data.eot[val]) {
-            acc.eot.push(val);
-        }
-        if (data.woff[val]) {
-            acc.woff.push(val);
-        }
-        if (data.woff2[val]) {
-            acc.woff2.push(val);
-        }
+export const getFontFormatsMap = (browsersList: string[], minimize = false): Map<FontFormat, Set<string>> => {
+    const formats: FontFormat[] = ["svg", "ttf", "eot", "woff", "woff2"];
 
-        return acc;
-    }, {
-        svg: [],
-        ttf: [],
-        eot: [],
-        woff: [],
-        woff2: [],
-    });
-    if (minimize) {
-        const keys = Object.keys(maxSupport) as Array<FontFormat>;
-        for (const key1 of keys) {
-            for (const key2 of keys) {
-                if (key1 !== key2 && maxSupport[key1] && maxSupport[key2] && maxSupport[key1].every(v => maxSupport[key2].includes(v))) {
-                    delete maxSupport[key1];
+    const maxSupport = browsersList.reduce((acc:Map<FontFormat, Set<string>>, browserVersion) => {
+        formats.forEach(format => {
+            if (data[format][browserVersion]) {
+                if (acc.has(format)) {
+                    acc.get(format)?.add(browserVersion);
+                } else {
+                    acc.set(format, new Set([browserVersion]));
                 }
             }
-        }
+        });
+
+        return acc;
+    }, new Map());
+
+    if (minimize) {
+        maxSupport.forEach((value1, key1) => {
+            maxSupport.forEach((value2, key2) => {
+                if (key1 !== key2) {
+                    if ([...value1].every(v => [...value2].includes(v))) {
+                        maxSupport.delete(key1);
+                    }
+                }
+            });
+        });
     }
 
     return maxSupport;
 };
-export const getFontsSupportList = (browsersList: string[], minimize: boolean = true): Array<FontFormat> => Object.keys(getFontsSupport(browsersList, minimize)) as Array<FontFormat>;
+export const getFontFormatsList = (browsersList: string[], minimize = false): FontFormat[] => [...getFontFormatsMap(browsersList, minimize).keys()];
